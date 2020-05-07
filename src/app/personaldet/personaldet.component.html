@@ -1,0 +1,56 @@
+<form #name="ngForm" (ngSubmit)="onsubmit();">
+    <div class="headtop">
+        <h2>Add Your Personal Details</h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean commodo ligula eget dolor.</p>
+    </div>
+       
+        <!-- Name -->
+        <label class="control-label" for="usename">Full Name</label>
+        <input type="text" name="usename" placeholder="Enter User Name" required [(ngModel)]="formobject.usename"
+            #username="ngModel" [ngClass]="{'alertbox':submitted && username.invalid}" />
+    
+        <div *ngIf="submitted && username.invalid" class="alert">
+            Enter Full Name
+        </div>
+       
+        <div class="gender">
+            <div><label for="count">Gender</label></div>
+            <button class="btn btn-default buttonspace">Male</button>
+            <button class="btn btn-default buttonspace">Femal</button>
+            <button class="btn btn-default buttonspace">Other</button>
+        
+        </div>
+        <!-- Country -->
+        <label for="count">Country</label>
+    
+        <select class="dropdown" (Change)="onChangeCountry($event.target.value)">
+            <option *ngFor="let country of countryInfo; let i = index" value="{{i}}">{{country.CountryName}}</option>
+          </select>  
+    
+        <!-- state -->
+        <label for="count">state</label>
+       
+        <select   class="dropdown" >
+            <option *ngIf="countryInfo == ''" value="0">--Select State--</option>
+            <option *ngFor="let state of stateInfo; let j = index" value="{{j}}">{{state.StateName}}</option>
+        </select>
+
+        <!-- Phone -->
+        <label for="phone">Phone</label>
+        <input type="text" name="count" placeholder="Enter Phone No." required [(ngModel)]="formobject.phone"
+            #phone="ngModel"  [ngClass]="{'alertbox':submitted && phone.invalid}" />
+    
+        <div *ngIf="submitted && phone.invalid" class="alert">Enter Phone No.</div>
+            <!-- <div *ngIf="phone.errors.pattern"  class="alert">  Phone number not valid.   </div>    -->
+        
+    
+        <button class="button" type="submit">Next</button>
+        
+   
+    <div >
+        <p class="bottom">Already have an Account ?<a>Login</a></p>
+    </div>
+</form>
+<!-- <pre>
+    {{formobject | json}}
+</pre> -->

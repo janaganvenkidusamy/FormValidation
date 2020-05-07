@@ -1,0 +1,59 @@
+<form #name="ngForm" (ngSubmit)="onsubmit();">
+    <div class="headtop">
+        <h2>Add Your Company Details</h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean commodo ligula eget dolor.</p>
+    </div>
+    <img [src]="imgurl"  style="width:80px; height:80px; border-radius: 50%; margin-bottom: 15px; ">
+        <label class="custom-file-upload">
+            <input type="file" accept="image/*" (change)="Fileinput($event.target.files);"/>
+            Upload your company Logo.
+        </label>
+        <!-- <input type="file" accept="image/*" (change)="Fileinput($event,target.files);"> -->
+        <!-- <button type="button">Upload you copany Logo</button> -->
+    <div>
+        <!-- Company Name -->
+        <label class="label_focus" for="companyname">Company Name</label>
+        <input type="text" name="companyname" placeholder="Company Name" required [(ngModel)]="formobject.companyname"
+            #company="ngModel" [ngClass]="{'alertbox':submitted && company.invalid}" />
+    
+        <div *ngIf="submitted && company.invalid" class="alert">
+            Enter Company Name
+        </div>
+        <!-- Email Id -->
+        <label for="Email">Email Id</label>
+        <input type="text" name="Email" placeholder="Email Id" required [(ngModel)]="formobject.Email"
+            #Emailid="ngModel" [ngClass]="{'alertbox':submitted && Emailid.invalid}" />
+    
+        <div *ngIf="submitted && Emailid.invalid" class="alert">
+            Enter Email Id
+        </div>
+    
+        <!-- Job Title -->
+        <label for="Title">Job Title</label>
+        <input type="text" name="Title" placeholder="Job Title" required [(ngModel)]="formobject.Title"
+            #jbitle="ngModel" [ngClass]="{'alertbox':submitted && jbitle.invalid}" />
+    
+        <div *ngIf="submitted && jbitle.invalid" class="alert">
+            Enter Job Title
+        </div>
+        <!-- year -->
+        <label for="year">Years Of Experience</label>
+        <input type="text" name="year" placeholder="Years Of Experience" required [(ngModel)]="formobject.year"
+            #yeare="ngModel" [ngClass]="{'alertbox':submitted && yeare.invalid}" />
+    
+        <div *ngIf="submitted && yeare.invalid" class="alert">
+            Enter Years Of Experience
+        </div>
+        <div class="check_bottom">
+            <input type="checkbox" required name="checkbox" value="check" /> 
+            <span class="checkbox_span">I accept the </span><a>Terms & Coditions</a>
+                 
+        </div>
+       
+
+        <button class="otp_Back" type="button" (click)="backtoperson();">Back</button>
+        <button class="otp" type="submit" >Send OTP</button>
+    
+    
+    </div>
+</form>

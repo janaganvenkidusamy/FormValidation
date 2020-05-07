@@ -1,0 +1,18 @@
+<form #name="ngForm" (ngSubmit)="onsubmit();">
+    <div class="headtop">
+        <h2>Enter Your OTP</h2>
+        <p>For your security, we need to verify your identity. We send a 5-digit code to
+            <b>name@domain.com.</b> Please enter it below. </p>
+    </div>
+    <div class="otpbox">
+        <input class="partitioned" name="otp" type="text" maxlength="4" required [(ngModel)]="formobject.otp"
+        #otpid="ngModel" />
+    </div>
+    
+
+        <!-- <button class="otp_Back" type="button" (click)="backtoperson();"> Back</butotton> -->
+        <button class="otp_Back" type="button" (click)="backtoperson();" >Back</button>
+        <button class="otp" type="submit" >Verify</button>
+    
+
+</form>

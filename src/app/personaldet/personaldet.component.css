@@ -96,6 +96,10 @@ form {
     color:  #ea8200 !important;  
     border: none;
   }
+  button:focus{
+    border: solid 1px #ea8200 !important;  
+    outline: none;
+  }
   .btn{
     display:inline-block;
     margin-bottom:0;
